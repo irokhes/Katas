@@ -33,23 +33,42 @@ namespace CodeKatas.Tests
             //Assert
             Assert.AreEqual("Buzz", result);
         }
+
+        [Test]
+        public void When_getting_number_divisible_by_3_and_5()
+        {
+            //Arrange
+            var fizzBuzz = new FizzBuzz();
+
+            //Act
+            var result = fizzBuzz.Answer(15);
+
+            //Assert
+            Assert.AreEqual("FizzBuzz", result);
+        }
     }
 
     public class FizzBuzz
     {
         public string Answer(int number)
         {
+            
+            if(number % 3 != 0 && number % 5 != 0)
+                return number.ToString(CultureInfo.InvariantCulture);
 
+            string result = string.Empty;
             if (number%3 == 0)
             {
-                return "Fizz";
+                result = "Fizz";
             }
             if(number%5 == 0)
             {
-                return "Buzz";
+                result += "Buzz";
             }
-            return number.ToString(CultureInfo.InvariantCulture);
-            
+
+            return result;
+
+
         }
     }
 }
