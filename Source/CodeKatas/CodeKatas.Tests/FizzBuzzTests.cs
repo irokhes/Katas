@@ -44,5 +44,31 @@ namespace CodeKatas.Tests
             //Assert
             Assert.AreEqual("FizzBuzz", result);
         }
+
+        [Test]
+        public void When_getting_a_number_containing_a_3()
+        {
+            //Arrange
+            var fizzBuzz = new FizzBuzz();
+
+            //Act
+            var result = fizzBuzz.Answer(13);
+
+            //Assert
+            Assert.AreEqual("Fizz", result);
+        }
+
+        [Test]
+        public void When_getting_a_number_containing_a_3_and_5()
+        {
+            //Arrange
+            var fizzBuzz = new FizzBuzz();
+
+            //Act
+            var result = fizzBuzz.Answer(53);
+
+            //Assert
+            Assert.AreEqual("FizzBuzz", result);
+        }
     }
 }

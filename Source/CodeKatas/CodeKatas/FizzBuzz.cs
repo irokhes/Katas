@@ -6,21 +6,20 @@ namespace CodeKatas
     {
         public string Answer(int number)
         {
-            
-            if(number % 3 != 0 && number % 5 != 0)
-                return number.ToString(CultureInfo.InvariantCulture);
+
+
 
             string result = string.Empty;
-            if (number%3 == 0)
+            if (number%3 == 0 || number.ToString(CultureInfo.InvariantCulture).Contains("3"))
             {
                 result = "Fizz";
             }
-            if(number%5 == 0)
+            if (number % 5 == 0 || number.ToString(CultureInfo.InvariantCulture).Contains("5"))
             {
                 result += "Buzz";
             }
-
-            return result;
+            
+            return result == string.Empty ? number.ToString(CultureInfo.InvariantCulture) : result;
 
 
         }
