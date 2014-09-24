@@ -70,5 +70,152 @@ namespace CodeKatas.Tests
             //Assert
             Assert.AreEqual(0,_items.First().Quality);
         }
+
+        [Test]
+        public void When_special_product_increase_quality()
+        {
+            //Arrange
+            var _items = new List<GildedRose.Item>
+            {
+                
+                new GildedRose.Item {Name = "Aged Brie", SellIn = 5, Quality = 20},
+                
+            };
+            var gildedRose = new GildedRose(_items);
+
+            //Act
+            gildedRose.UpdateQuality();
+
+
+            //Assert
+            Assert.AreEqual(21,_items.First().Quality);
+        }
+
+        [Test]
+        public void When_quality_never_exceed_fifty()
+        {
+            //Arrange
+            var _items = new List<GildedRose.Item>
+            {
+                
+                new GildedRose.Item {Name = "Aged Brie", SellIn = 5, Quality = 50},
+                
+            };
+            var gildedRose = new GildedRose(_items);
+
+            //Act
+            gildedRose.UpdateQuality();
+
+
+            //Assert
+            Assert.AreEqual(50, _items.First().Quality);
+        }
+
+        [Test]
+        public void When_sulfuras_never_has_to_be_sold_or_decrease_quality()
+        {
+            //Arrange
+            var _items = new List<GildedRose.Item>
+            {
+                
+                new GildedRose.Item {Name = "Sulfuras, Hand of Ragnaros", SellIn = 5, Quality = 40},
+                
+            };
+            var gildedRose = new GildedRose(_items);
+
+            //Act
+            gildedRose.UpdateQuality();
+
+
+            //Assert
+            Assert.AreEqual(40, _items.First().Quality);
+            Assert.AreEqual(5, _items.First().SellIn);
+        }
+
+        [Test]
+        public void When_updating_quality_back_stage_tickets_and_SellIn_greater_than_10()
+        {
+            //Arrange
+            var _items = new List<GildedRose.Item>
+            {
+                
+                new GildedRose.Item {Name = "Backstage passes to a TAFKAL80ETC concert", SellIn = 12, Quality = 40},
+                
+            };
+            var gildedRose = new GildedRose(_items);
+
+            //Act
+            gildedRose.UpdateQuality();
+
+
+            //Assert
+            Assert.AreEqual(41, _items.First().Quality);
+            
+        }
+
+        [Test]
+        public void When_updating_quality_back_stage_tickets_and_SellIn_between_10_and_5()
+        {
+            //Arrange
+            var _items = new List<GildedRose.Item>
+            {
+                
+                new GildedRose.Item {Name = "Backstage passes to a TAFKAL80ETC concert", SellIn = 8, Quality = 40},
+                
+            };
+            var gildedRose = new GildedRose(_items);
+
+            //Act
+            gildedRose.UpdateQuality();
+
+
+            //Assert
+            Assert.AreEqual(42, _items.First().Quality);
+
+        }
+
+        [Test]
+        public void When_updating_quality_back_stage_tickets_and_SellIn_less_than_5()
+        {
+            //Arrange
+            var _items = new List<GildedRose.Item>
+            {
+                
+                new GildedRose.Item {Name = "Backstage passes to a TAFKAL80ETC concert", SellIn = 3, Quality = 40},
+                
+            };
+            var gildedRose = new GildedRose(_items);
+
+            //Act
+            gildedRose.UpdateQuality();
+
+
+            //Assert
+            Assert.AreEqual(43, _items.First().Quality);
+
+        }
+
+        [Test]
+        public void When_updating_quality_back_stage_tickets_and_SellIn_passed()
+        {
+            //Arrange
+            var _items = new List<GildedRose.Item>
+            {
+                
+                new GildedRose.Item {Name = "Backstage passes to a TAFKAL80ETC concert", SellIn = 0, Quality = 40},
+                
+            };
+            var gildedRose = new GildedRose(_items);
+
+            //Act
+            gildedRose.UpdateQuality();
+
+
+            //Assert
+            Assert.AreEqual(0, _items.First().Quality);
+
+        }
+
+        
     }
 }
