@@ -27,6 +27,11 @@ namespace CodeKatas
         {
             for (var i = 0; i < _items.Count; i++)
             {
+                if (_items[i].Name == "Conjured")
+                {
+                    _items[i].Quality -= 2;
+                    continue;
+                }
                 if (_items[i].Name != "Aged Brie" && _items[i].Name != "Backstage passes to a TAFKAL80ETC concert")
                 {
                     if (_items[i].Quality > 0)

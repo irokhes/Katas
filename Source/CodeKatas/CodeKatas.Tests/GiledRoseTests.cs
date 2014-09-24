@@ -216,6 +216,27 @@ namespace CodeKatas.Tests
 
         }
 
-        
+        [Test]
+        public void When_Conjured_item_quality_decreases_twice_as_fast_as_normal()
+        {
+            //Arrange
+            var _items = new List<GildedRose.Item>
+            {
+                
+                new GildedRose.Item {Name = "Conjured", SellIn = 10, Quality = 40},
+                new GildedRose.Item {Name = "Elixir of the Mongoose", SellIn = 13, Quality = 40}
+                
+            };
+            var gildedRose = new GildedRose(_items);
+
+            //Act
+            gildedRose.UpdateQuality();
+
+
+            //Assert
+            Assert.AreEqual(38, _items.First().Quality);
+            Assert.AreEqual(39, _items.Last().Quality);
+
+        }
     }
 }
