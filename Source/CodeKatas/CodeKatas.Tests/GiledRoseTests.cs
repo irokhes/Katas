@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using CodeKatas.GiledRoseKata;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using NUnit.Framework;
 using Assert = Microsoft.VisualStudio.TestTools.UnitTesting.Assert;
@@ -118,7 +119,7 @@ namespace CodeKatas.Tests
             var _items = new List<GildedRose.Item>
             {
                 
-                new GildedRose.Item {Name = "Sulfuras, Hand of Ragnaros", SellIn = 5, Quality = 40},
+                new GildedRose.Item {Name = "Sulfuras, Hand of Ragnaros", SellIn = 5, Quality = 80},
                 
             };
             var gildedRose = new GildedRose(_items);
@@ -128,7 +129,7 @@ namespace CodeKatas.Tests
 
 
             //Assert
-            Assert.AreEqual(40, _items.First().Quality);
+            Assert.AreEqual(80, _items.First().Quality);
             Assert.AreEqual(5, _items.First().SellIn);
         }
 
